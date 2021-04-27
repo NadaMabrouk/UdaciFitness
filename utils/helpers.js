@@ -1,7 +1,7 @@
 import React from 'react'
-import {View} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import {FontAwesome, MaterialIcons, MaterialCommunityIcons} from '@expo/vector-icons'
-import { white } from './colors'
+import { white,red,orange,blue,pink, lightPurp} from './colors'
 export function isBetween (num, x, y) {
     if (num >= x && num <= y) {
       return true
@@ -45,10 +45,24 @@ export function isBetween (num, x, y) {
   }
   
   export function getDailyReminder(){
-    return {
-      today: "👋 Don't forget to log your data today!"
-    }
+    return  [
+      {
+        today: "👋 Don't forget to log your data today!",
+      },
+    ]
   }
+
+  const styles = StyleSheet.create({
+    iconContainer: {
+      padding: 5,
+      margin: 5,
+      borderRadius:8,
+      height: 50,
+      width: 50,
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  })
   export function getMetricMetaInfo(metric){
       const info = {
           run: {
@@ -59,11 +73,11 @@ export function isBetween (num, x, y) {
               type: 'steppers',
               getIcon(){
                   return (
-                    <View>
+                    <View style={[styles.iconContainer, {backgroundColor: red}]}>
                         <MaterialIcons 
                             name="directions-run"
                             size={35} 
-                            color="black" 
+                            color={white} 
                         />
                     </View>
                   )
@@ -77,11 +91,11 @@ export function isBetween (num, x, y) {
             type: 'steppers',
             getIcon(){
                 return (
-                  <View>
+                  <View style={[styles.iconContainer, {backgroundColor: orange}]}>
                       <MaterialCommunityIcons 
                         name="bike" 
                         size={35} 
-                        color="black" 
+                        color={white} 
                         />
                   </View>
                 )
@@ -95,11 +109,11 @@ export function isBetween (num, x, y) {
             type: 'steppers',
             getIcon(){
                 return (
-                  <View>
+                  <View style={[styles.iconContainer, {backgroundColor: blue}]}>
                       <MaterialCommunityIcons 
                           name="swim"
                           size={35} 
-                          color="black" 
+                          color={white}  
                       />
                   </View>
                 )
@@ -113,11 +127,11 @@ export function isBetween (num, x, y) {
             type: 'slider',
             getIcon(){
                 return (
-                  <View>
+                  <View style={[styles.iconContainer, {backgroundColor: lightPurp}]}>
                       <FontAwesome 
                           name="bed"
                           size={35} 
-                          color="black" 
+                          color={white}  
                       />
                   </View>
                 )
@@ -131,11 +145,11 @@ export function isBetween (num, x, y) {
             type: 'slider',
             getIcon(){
                 return (
-                  <View>
+                  <View style={[styles.iconContainer, {backgroundColor: pink}]}>
                       <MaterialCommunityIcons 
                           name="food"
                           size={35} 
-                          color="black" 
+                          color={white}  
                       />
                   </View>
                 )
